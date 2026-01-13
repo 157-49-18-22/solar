@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+.testimonials-section {
+    padding: 80px 0 120px;
+    background: #000000;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonials-header {
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.client-review-text {
+    color: #ffd700;
+    /* Gold */
+    font-family: 'Satisfy', cursive;
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.testimonial-title {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+    color: #1e3a8a;
+    /* Deep Blue */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Times New Roman', serif;
+    /* Matching the serif look */
+}
+
+.header-stars {
+    color: #ffd700;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.testimonials-viewport {
+    perspective: 2000px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    /* Cards overlap slightly or just touch */
+    height: 500px;
+    position: relative;
+}
+
+.testimonial-card {
+    background: #f8fafc;
+    color: #334155;
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 380px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Specific Positions for 3 visible cards */
+.testimonial-card.active {
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.testimonial-card.prev,
+.testimonial-card.next {
+    z-index: 5;
+    opacity: 0.4;
+    transform: scale(0.85);
+    filter: blur(2px);
+    display: flex;
+    /* Ensure they are visible layout-wise */
+}
+
+.testimonial-card.prev {
+    transform: translateX(-340px) scale(0.85);
+}
+
+.testimonial-card.next {
+    transform: translateX(340px) scale(0.85);
+}
+
+/* Hide others */
+.testimonial-card.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    display: none;
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: #ffd700;
+    /* Gold */
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.testimonial-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 20px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffd700;
+}
+
+.author-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.author-info span {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Pagination Dots */
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #334155;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ffd700;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        position: relative;
+        width: 90%;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        display: none;
+        /* Hide all by default */
+        height: auto;
+        min-height: 400px;
+    }
+
+    .testimonial-card.active {
+        display: flex;
+    }
+
+    .testimonial-card.prev,
+    .testimonial-card.next {
+        display: none;
+        /* Hide side cards on mobile */
+    }
+
+    .testimonial-title {
+        font-size: 2.2rem;
+    }
+}

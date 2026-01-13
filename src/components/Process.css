@@ -1,0 +1,87 @@
+.process-section {
+    padding: 100px 0;
+    background: var(--dark-blue);
+    color: white;
+    position: relative;
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.process-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.process-subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    gap: 20px;
+}
+
+.process-step {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.step-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05);
+    margin-bottom: -20px;
+    z-index: 0;
+    position: relative;
+}
+
+.step-content {
+    position: relative;
+    z-index: 1;
+}
+
+.step-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--primary-green);
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* Connector Line */
+.step-connector {
+    position: absolute;
+    top: 60px;
+    right: -50%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.5), transparent);
+    z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .process-steps {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .step-connector {
+        display: none;
+    }
+}

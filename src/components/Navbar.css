@@ -1,10 +1,8 @@
 .navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    box-shadow:
-        0 4px 24px rgba(30, 41, 59, 0.08),
-        0 2px 8px rgba(0, 0, 0, 0.04);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
     padding: 1.2rem 0;
     position: fixed;
     top: 0;
@@ -12,7 +10,7 @@
     right: 0;
     z-index: 1000;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    border-bottom: 1px solid transparent;
 }
 
 .navbar::before {
@@ -38,6 +36,9 @@
         0 8px 32px rgba(30, 41, 59, 0.12),
         0 4px 12px rgba(0, 0, 0, 0.06);
     background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
 }
 
 .navbar.scrolled::before {
@@ -101,13 +102,19 @@
 
 .nav-link {
     font-weight: 600;
-    color: var(--dark-blue);
+    color: white;
+    /* White on transparent background */
     text-decoration: none;
     position: relative;
     padding: 0.6rem 0;
     font-size: 1rem;
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--dark-blue);
+    /* Dark on white background */
 }
 
 .nav-link::before {
@@ -139,6 +146,7 @@
 
 .nav-link:hover {
     color: var(--primary-green);
+    /* Hover color stays green */
 }
 
 .nav-link:hover::before {
@@ -191,6 +199,7 @@
     padding: 2px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
@@ -243,9 +252,15 @@
 .mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary-green), var(--energy-blue));
+    background: white;
+    /* White on transparent */
     border-radius: 2px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled .mobile-menu-toggle span {
+    background: linear-gradient(90deg, var(--primary-green), var(--energy-blue));
+    /* Original on white */
 }
 
 .mobile-menu-toggle:hover span {

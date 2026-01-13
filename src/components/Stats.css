@@ -4,6 +4,7 @@
     padding: 120px 0;
     position: relative;
     overflow: hidden;
+    display: none;
 }
 
 /* Animated Mesh Background */
@@ -35,6 +36,7 @@
 
 /* Floating Particles */
 .stats-section::after {
+    display: none;
     content: '';
     position: absolute;
     width: 100%;

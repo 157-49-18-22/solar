@@ -1,0 +1,139 @@
+.difference-section {
+    padding: 100px 0;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.difference-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.difference-content {
+    order: 1;
+}
+
+.difference-image {
+    order: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.difference-text {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.difference-features {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.diff-feature-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.diff-icon-wrapper {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.diff-feature-item:hover .diff-icon-wrapper {
+    background: var(--primary-green);
+    color: white;
+    transform: scale(1.1);
+}
+
+.diff-text-content h3 {
+    font-size: 1.25rem;
+    color: var(--dark-blue);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.diff-text-content p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Right Side Animation Styling */
+.lottie-wrapper {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+}
+
+/* Decorative background blobs */
+.blob-1 {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 1;
+    animation: blobFloat 8s infinite alternate;
+}
+
+.blob-2 {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 250px;
+    height: 250px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: 1;
+    animation: blobFloat 6s infinite alternate-reverse;
+}
+
+@keyframes blobFloat {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(20px, 20px);
+    }
+}
+
+@media (max-width: 968px) {
+    .difference-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .difference-content {
+        order: 2;
+    }
+
+    .difference-image {
+        order: 1;
+    }
+}
