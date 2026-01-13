@@ -1,0 +1,687 @@
+.hero-section {
+    position: relative;
+    background:
+        linear-gradient(135deg, rgba(5, 150, 105, 0.92), rgba(16, 185, 129, 0.95)),
+        url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 140px 0 80px;
+}
+
+/* Dark Night Overlay - Fades away as sun rises */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #0a0e27 0%, #1a1f3a 50%, #2a2f4a 100%);
+    z-index: 3;
+    animation: nightToDay 2.5s ease-out forwards;
+}
+
+@keyframes nightToDay {
+    0% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* Animated Mesh Gradient Overlay - Appears after sunrise */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.3) 0%, transparent 50%);
+    animation: meshMove 15s ease-in-out infinite, fadeInMesh 2.5s ease-out forwards;
+    z-index: 1;
+    opacity: 0;
+}
+
+@keyframes fadeInMesh {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes meshMove {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+/* Stars - Twinkle and fade away */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: starsFadeOut 2s ease-out forwards 1.5s;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes starsFadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+
+/* Animated Background Elements - Enhanced */
+.floating-solar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.solar-cell-float {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    animation: floatUp 20s linear infinite;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Premium Sun Animation with Rays - Rises from bottom */
+/* Premium Sun Animation with Rays - Rises from bottom */
+.hero-sun-container {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    right: 5%;
+    z-index: 2;
+    transform: translateY(100vh);
+    animation: sunRise 8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lottie-sun {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes sunRise {
+    0% {
+        transform: translateY(150vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes sunRays {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Enhanced Energy Beams - Sync with sunrise */
+.energy-beam {
+    position: absolute;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom, transparent, rgba(251, 191, 36, 0.8), rgba(251, 191, 36, 0.4), transparent);
+    top: 0;
+    transform: translateX(-50%);
+    animation: beamGrow 3s ease-out infinite 2s;
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+    filter: blur(1px);
+    opacity: 0;
+}
+
+@keyframes beamGrow {
+    0% {
+        height: 0;
+        opacity: 0;
+    }
+
+    50% {
+        height: 250px;
+        opacity: 1;
+    }
+
+    100% {
+        height: 0;
+        opacity: 0;
+    }
+}
+
+/* Light Spread Effect - Radiates from sun */
+.light-spread {
+    position: absolute;
+    top: 12%;
+    right: 8%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(251, 191, 36, 0.4) 0%,
+            rgba(251, 191, 36, 0.3) 20%,
+            rgba(251, 191, 36, 0.2) 40%,
+            rgba(251, 191, 36, 0.1) 60%,
+            transparent 80%);
+    transform: scale(0);
+    opacity: 0;
+    animation: lightSpread 2.5s ease-out forwards 1s;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@keyframes lightSpread {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+
+/* Hero Content - Enhanced */
+.hero-content {
+    position: relative;
+    z-index: 4;
+    max-width: 950px;
+}
+
+/* Smooth Entrance Keyframes */
+@keyframes fadeInUpSmooth {
+    0% {
+        opacity: 0.1;
+        transform: translateY(40px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Entrance + Glow */
+    animation:
+        fadeInUpSmooth 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
+        titleGlow 6s infinite alternate 1s;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    opacity: 0.1;
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.3),
+            0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        text-shadow:
+            0 4px 25px rgba(255, 255, 255, 0.5),
+            0 0 40px rgba(16, 185, 129, 0.7),
+            0 0 60px rgba(59, 130, 246, 0.4);
+    }
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin-bottom: 2.5rem;
+    max-width: 750px;
+    line-height: 1.7;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.1;
+    animation: fadeInUpSmooth 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+}
+
+/* Premium Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    opacity: 0.1;
+    animation: fadeInUpSmooth 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    color: white;
+    padding: 18px 45px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 10px 30px rgba(16, 185, 129, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-primary-custom::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+        0 15px 40px rgba(16, 185, 129, 0.5),
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.btn-primary-custom:hover::before {
+    left: 100%;
+}
+
+.btn-primary-custom:hover::after {
+    opacity: 1;
+}
+
+.btn-primary-custom i {
+    transition: transform 0.3s ease;
+}
+
+.btn-primary-custom:hover i {
+    transform: translateX(4px);
+}
+
+.btn-outline-custom {
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    color: white;
+    padding: 16px 43px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-outline-custom:hover {
+    background: white;
+    color: var(--dark-green);
+    border-color: white;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+        0 12px 32px rgba(255, 255, 255, 0.4),
+        0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-custom:hover::before {
+    left: 100%;
+}
+
+.btn-outline-custom i {
+    transition: transform 0.3s ease;
+}
+
+.btn-outline-custom:hover i {
+    transform: translateX(4px);
+}
+
+/* Ultra-Premium Hero Stats with Glassmorphism */
+.hero-stats {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 24px;
+    padding: 35px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2.5rem;
+
+    opacity: 0.1;
+    animation: statsFadeIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards, statsFloat 6s ease-in-out infinite 2.5s;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+@keyframes statsFadeIn {
+    0% {
+        opacity: 0.1;
+        transform: translateY(20px);
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.hero-stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+@keyframes statsFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.hero-stat {
+    text-align: center;
+    position: relative;
+}
+
+.hero-stat::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.hero-stat:last-child::after {
+    display: none;
+}
+
+.hero-stat-number {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    font-family: 'Racing Sans One', cursive;
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.3);
+    letter-spacing: -0.5px;
+}
+
+.hero-stat-text {
+    font-size: 1rem;
+    opacity: 0.92;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Premium Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-12px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-6px);
+    }
+}
+
+.scroll-indicator i {
+    font-size: 1.5rem;
+    color: white;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 120px 0 60px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn-primary-custom,
+    .btn-outline-custom {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 25px 20px;
+    }
+
+    .hero-stat::after {
+        display: none;
+    }
+
+    .hero-stat-number {
+        font-size: 2rem;
+    }
+
+    .hero-sun {
+        width: 120px;
+        height: 120px;
+        top: 10%;
+        right: 5%;
+    }
+
+    .hero-sun::before {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-sun::after {
+        width: 180px;
+        height: 180px;
+    }
+}

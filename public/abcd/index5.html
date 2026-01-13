@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Zero - Modern Solar Energy Solutions</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/solar-panel.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Library for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        :root {
+            /* Enhanced green-focused color scheme */
+            --primary-green: #10b981;  /* Vibrant emerald green */
+            --dark-green: #059669;     /* Darker green for accents */
+            --light-green: #d1fae5;    /* Light green for backgrounds */
+            --energy-blue: #3b82f6;    /* Bright complementary blue */
+            --sun-yellow: #fbbf24;     /* Sunny yellow */
+            --dark-blue: #1e293b;      /* Dark blue for text/backgrounds */
+            --light-color: #f8fafc;
+            --dark-color: #334155;
+            --gray-color: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            background-color: #fefefe;
+        }
+        
+        h1, h2, h3, h4, h5, .brand-font {
+            font-family: 'Racing Sans One', cursive;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Logo Styling */
+        .logo {
+            font-family: 'Racing Sans One', cursive;
+            font-weight: 400;
+            color: var(--dark-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 70px;
+            width: auto;
+            margin-right: 12px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(30, 41, 59, 0.08);
+            padding: 1rem 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 5px 25px rgba(30, 41, 59, 0.15);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 8px;
+            color: var(--dark-blue) !important;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-green), var(--energy-blue));
+            left: 0;
+            bottom: 0;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-green) !important;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Fixed Hero Section */
+        .hero-section {
+            position: relative;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.85), rgba(16, 185, 129, 0.9)), 
+                        url('https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+        
+        /* Animated background elements */
+        .floating-solar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .solar-cell-float {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            animation: floatUp 20s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Sun animation in hero */
+        .hero-sun {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--sun-yellow), #f59e0b);
+            border-radius: 50%;
+            top: 15%;
+            right: 10%;
+            box-shadow: 0 0 60px rgba(251, 191, 36, 0.8);
+            animation: sunPulse 4s infinite alternate;
+            z-index: 1;
+        }
+        
+        @keyframes sunPulse {
+            0% {
+                box-shadow: 0 0 40px rgba(251, 191, 36, 0.8);
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 0 80px rgba(251, 191, 36, 1);
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Energy beam effect */
+        .energy-beam {
+            position: absolute;
+            width: 2px;
+            height: 0;
+            background: linear-gradient(to bottom, transparent, var(--sun-yellow), transparent);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: beamGrow 3s ease-out infinite;
+            box-shadow: 0 0 20px var(--sun-yellow);
+        }
+        
+        @keyframes beamGrow {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            50% {
+                height: 200px;
+                opacity: 0.8;
+            }
+            100% {
+                height: 0;
+                opacity: 0;
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            animation: titleGlow 6s infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                text-shadow: 0 4px 25px rgba(255, 255, 255, 0.4), 0 0 30px rgba(16, 185, 129, 0.6);
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        /* Animated button */
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            border: none;
+            color: white;
+            padding: 16px 40px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+        
+        .btn-primary-custom:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.6);
+            color: white;
+        }
+        
+        .btn-primary-custom:hover:before {
+            left: 100%;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid white;
+            color: white;
+            padding: 14px 38px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            font-size: 1.1rem;
+            z-index: 2;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-outline-custom:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: var(--dark-green);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline-custom:hover:before {
+            left: 100%;
+        }
+        
+        /* Hero stats */
+        .hero-stats {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+            animation: statsFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes statsFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero-stat {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .hero-stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+            font-family: 'Racing Sans One', cursive;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-stat-text {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Animated scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--energy-blue));
+            bottom: -15px;
+            left: 0;
+            border-radius: 3px;
+            animation: lineGrow 1.5s ease-out;
+        }
+        
+        @keyframes lineGrow {
+            0% { width: 0; }
+            100% { width: 80px; }
+        }
+        
+        .section-subtitle {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 2rem auto 4rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        .section-padding {
+            padding: 120px 0;
+        }
+        
+        /* Services with enhanced animation */
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+            height: 100%;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--energy-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(30, 41, 59, 0.15);
+            border-color: var(--light-green);
+        }
+        
+        .service-card:hover:before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover:after {
+            opacity: 1;
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg, var(--primary-green), var(--energy-blue));
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            transition: all 0.5s ease;
+        }
+        
+        .service-card:hover .service-icon i {
+            color: white;
+            animation: iconPulse 1s infinite alternate;
+        }
+        
+        @keyframes iconPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        /* Animated stats section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--dark-blue), #0f172a);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            font-family: 'Racing Sans One', cursive;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        /* Enhanced testimonial cards */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 35px rgba(30, 41, 59, 0.1);
+            margin: 15px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            border-top: 5px solid var(--primary-green);
+        }
+        
+        .testimonial-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(59, 130, 246, 0.03));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(30, 41, 59, 0.15);
+        }
+        
+        .testimonial-card:hover:before {
+            opacity: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .client-name {
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        /* FIXED Contact Form */
+        .contact-form-container {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(30, 41, 59, 0.15);
+            border-top: 6px solid var(--primary-green);
+            position: relative;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-form-container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(59, 130, 246, 0.03));
+            z-index: 0;
+        }
+        
+        .contact-form-title {
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-control-custom {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+        
+        .form-control-custom:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+            background: white;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-btn {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            border: none;
+            color: white;
+            padding: 18px 40px;
+            font-weight: 600;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            font-size: 1.2rem;
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .form-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.6);
+        }
+        
+        .form-btn:hover:before {
+            left: 100%;
+        }
+        
+        /* CTA Section with animation */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue), #0f172a);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            animation: ctaGlow 10s infinite alternate;
+        }
+        
+        @keyframes ctaGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* FIXED Footer */
+        .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 100px 0 40px;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-green), var(--energy-blue));
+        }
+        
+        .footer-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-family: 'Racing Sans One', cursive;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a:before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--primary-green);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 18px;
+        }
+        
+        .footer-links a:hover:before {
+            opacity: 1;
+            left: 0;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            color: var(--primary-green);
+            margin-right: 12px;
+            margin-top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            margin-right: 12px;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.2rem;
+        }
+        
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--primary-green), var(--energy-blue));
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .copyright a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-sun {
+                width: 100px;
+                height: 100px;
+                top: 10%;
+            }
+            
+            .contact-form-container {
+                padding: 40px 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 100px 0 60px;
+                text-align: center;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .btn-primary-custom, .btn-outline-custom {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .hero-stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+            
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+            
+            .contact-form-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <!-- Demo Logo -->
+                <img src="assets/Grid Zero-01.png" alt="Grid Zero Logo" class="logo-img">
+                <!-- <span class="logo-text">GRID ZERO</span> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary-custom" href="#contact">Get Quote</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fixed & Enhanced Hero Section -->
+    <section class="hero-section" id="home">
+        <!-- Background animations -->
+        <div class="floating-solar">
+            <!-- Floating solar cells -->
+            <div class="solar-cell-float" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="solar-cell-float" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="solar-cell-float" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="solar-cell-float" style="left: 40%; animation-delay: 6s;"></div>
+            <div class="solar-cell-float" style="left: 50%; animation-delay: 8s;"></div>
+            <div class="solar-cell-float" style="left: 60%; animation-delay: 10s;"></div>
+            <div class="solar-cell-float" style="left: 70%; animation-delay: 12s;"></div>
+            <div class="solar-cell-float" style="left: 80%; animation-delay: 14s;"></div>
+            <div class="solar-cell-float" style="left: 90%; animation-delay: 16s;"></div>
+        </div>
+        
+        <div class="hero-sun"></div>
+        <div class="energy-beam"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1 class="hero-title brand-font animate__animated animate__fadeInUp">Power Your World with <span style="color: var(--sun-yellow);">Clean Solar Energy</span></h1>
+                        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Grid Zero delivers cutting-edge solar solutions that reduce your carbon footprint while cutting energy costs by up to 90%. Experience the future of sustainable energy with our expertly engineered solar systems.</p>
+                        <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                            <a href="#contact" class="btn btn-primary-custom me-3 mb-3">Get Free Consultation</a>
+                            <a href="#services" class="btn btn-outline-custom mb-3">Explore Solutions</a>
+                        </div>
+                        
+                        <!-- Hero Stats -->
+                        <div class="hero-stats mt-5" data-aos="fade-up" data-aos-delay="300">
+                            <div class="row">
+                                <div class="col-4 col-md-4">
+                                    <div class="hero-stat">
+                                        <div class="hero-stat-number" data-count="25">0</div>
+                                        <div class="hero-stat-text">Years Experience</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-md-4">
+                                    <div class="hero-stat">
+                                        <div class="hero-stat-number" data-count="2500">0</div>
+                                        <div class="hero-stat-text">Installations</div>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-md-4">
+                                    <div class="hero-stat">
+                                        <div class="hero-stat-number" data-count="90">0%</div>
+                                        <div class="hero-stat-text">Energy Savings</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="text-center" data-aos="fade-left" data-aos-delay="500">
+                        <!-- Logo in Hero -->
+                        <div class="mb-5" data-aos="zoom-in" data-aos-delay="700">
+                            <img src="assets/Grid Zero-01.png" alt="Grid Zero Logo" class="img-fluid" style="border-radius: 15px; padding: 20px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                        </div>
+                        
+                        <!-- Solar panel animation -->
+                        <div class="solar-panel-animation mt-4">
+                            <div class="solar-panel">
+                                <!-- Solar cells will be added via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <a href="#about" class="text-white">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title brand-font" data-aos="fade-right">Why Grid Zero is Different</h2>
+                    <p class="mb-4" data-aos="fade-right" data-aos-delay="100">We combine cutting-edge solar technology with sustainable practices to deliver energy solutions that are both environmentally responsible and economically smart. Every installation is designed for maximum efficiency, durability, and long-term savings.</p>
+                    
+                    <div data-aos="fade-right" data-aos-delay="200">
+                        <div class="d-flex mb-4">
+                            <div class="me-3">
+                                <div class="service-icon" style="width: 70px; height: 70px; margin-bottom: 0;">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h5>Eco-Friendly Solutions</h5>
+                                <p class="text-muted">Reduce your carbon footprint with clean, renewable solar energy that's good for the planet.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="me-3">
+                                <div class="service-icon" style="width: 70px; height: 70px; margin-bottom: 0;">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h5>Maximum Energy Efficiency</h5>
+                                <p class="text-muted">Our high-efficiency panels generate more power per square foot than standard systems.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="me-3">
+                                <div class="service-icon" style="width: 70px; height: 70px; margin-bottom: 0;">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h5>25-Year Performance Warranty</h5>
+                                <p class="text-muted">Comprehensive warranties covering equipment, workmanship, and system performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Solar Installation" class="img-fluid rounded-3 shadow" style="border: 10px solid white; box-shadow: 0 20px 50px rgba(30, 41, 59, 0.2);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding bg-light" id="services">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title brand-font" data-aos="fade-up">Our Green Energy Solutions</h2>
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Comprehensive solar energy solutions designed to reduce energy bills, increase property value, and create a sustainable future for residential and commercial properties.</p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>Residential Solar</h4>
+                        <p>Complete home solar systems with optional battery storage for energy independence and backup power during grid outages.</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color: var(--primary-green);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Commercial Solar</h4>
+                        <p>Large-scale solar installations for businesses, factories, and commercial properties to significantly reduce operational costs.</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color: var(--primary-green);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">
+                            <i class="fas fa-car-battery"></i>
+                        </div>
+                        <h4>Solar Storage</h4>
+                        <p>Advanced battery systems to store excess solar energy for use during nighttime hours or power grid failures.</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color: var(--primary-green);">Learn More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container position-relative">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="2500">0</div>
+                        <div class="stat-text">Solar Installations</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="18500">0</div>
+                        <div class="stat-text">Total kW Installed</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="24">24/7</div>
+                        <div class="stat-text">Monitoring & Support</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="25">25</div>
+                        <div class="stat-text">Year Warranty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding" id="testimonials">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title brand-font" data-aos="fade-up">Customer Experiences</h2>
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Hear from homeowners and businesses who have transformed their energy consumption with Grid Zero's green solar solutions.</p>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Switching to Grid Zero solar was the best decision for our home. Our energy bills dropped by over 80% and we feel good about reducing our carbon footprint."
+                        </div>
+                        <div class="client-name">Sarah Johnson</div>
+                        <div class="text-muted">Homeowner, San Francisco</div>
+                        <div class="mt-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Our business electricity costs were cut in half after installing Grid Zero's commercial solar system. The ROI has been exceptional and our customers appreciate our green initiative."
+                        </div>
+                        <div class="client-name">Michael Rodriguez</div>
+                        <div class="text-muted">Business Owner, Los Angeles</div>
+                        <div class="mt-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "The battery backup system kept our home powered during the recent blackouts. Our neighbors were in the dark for days while we had full power thanks to Grid Zero."
+                        </div>
+                        <div class="client-name">Jennifer Lee</div>
+                        <div class="text-muted">Homeowner, San Diego</div>
+                        <div class="mt-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with FIXED Contact Form -->
+    <section class="cta-section" id="contact">
+        <div class="container position-relative">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4 brand-font" data-aos="fade-up">Go Green with Solar Today</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="100" style="opacity: 0.9; font-size: 1.2rem;">Take the first step toward energy independence and a sustainable future. Get a free, no-obligation consultation and custom quote for your home or business.</p>
+                    
+                    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-12">
+                            <div class="contact-form-container">
+                                <h3 class="contact-form-title text-center brand-font mb-5">Request Free Solar Consultation</h3>
+                                <form id="contactForm">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Full Name *</label>
+                                            <input type="text" class="form-control form-control-custom" placeholder="John Smith" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email Address *</label>
+                                            <input type="email" class="form-control form-control-custom" placeholder="john@example.com" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Phone Number *</label>
+                                            <input type="tel" class="form-control form-control-custom" placeholder="(123) 456-7890" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Property Type</label>
+                                            <select class="form-control form-control-custom">
+                                                <option value="" disabled selected>Select Property Type</option>
+                                                <option value="residential">Residential Home</option>
+                                                <option value="commercial">Commercial Property</option>
+                                                <option value="industrial">Industrial Facility</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Message</label>
+                                            <textarea class="form-control form-control-custom" rows="4" placeholder="Tell us about your energy needs, current usage, or any specific requirements..."></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                                <label class="form-check-label" for="newsletter">
+                                                    Send me updates about solar technology and special offers
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="form-btn">Get Your Free Solar Quote</button>
+                                        </div>
+                                        <div class="col-12 text-center mt-3">
+                                            <small class="text-muted">By submitting this form, you agree to our Privacy Policy and Terms of Service.</small>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up">
+                    <a class="logo mb-4" href="#" style="font-size: 1.2rem;">
+                        <img src="assets/Grid Zero-02.png" alt="Grid Zero Logo"  width="120px;">
+                        <!-- <span class="logo-text" style="font-size: 1.8rem;">GRID ZERO</span> -->
+                    </a>
+                    <p class="mb-4" style="max-width: 300px;">Leading the green energy revolution with sustainable solar solutions for homes and businesses across the country. Powering a cleaner, brighter future.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="footer-title">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Residential Solar</a></li>
+                        <li><a href="#">Commercial Solar</a></li>
+                        <li><a href="#">Solar Storage</a></li>
+                        <li><a href="#">System Maintenance</a></li>
+                        <li><a href="#">Energy Monitoring</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="footer-title">Contact Information</h5>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 1865 Solar Tech Boulevard<br>San Francisco, CA 94107</p>
+                        <p><i class="fas fa-phone"></i> +1 (021) 461-2188</p>
+                        <p><i class="fas fa-envelope"></i> info@gridzero.com</p>
+                        <p><i class="fas fa-globe"></i> www.gridzero.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Grid Zero Solar Solutions. All rights reserved. <br> Brand guidelines created by <a href="artlifebrandingstudio.com">artlife branding studio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library for scroll animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JS for animations -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+        
+        // Hero section fixed - now with proper positioning
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix hero section positioning
+            const heroSection = document.querySelector('.hero-section');
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            heroSection.style.paddingTop = navbarHeight + 20 + 'px';
+            
+            // Floating solar cells in hero
+            const floatingSolar = document.querySelector('.floating-solar');
+            for (let i = 0; i < 15; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'solar-cell-float';
+                cell.style.left = Math.random() * 100 + '%';
+                cell.style.animationDelay = Math.random() * 20 + 's';
+                cell.style.width = Math.random() * 30 + 20 + 'px';
+                cell.style.height = cell.style.width;
+                floatingSolar.appendChild(cell);
+            }
+            
+            // Animated solar panel in hero
+            const solarPanel = document.querySelector('.solar-panel');
+            if (solarPanel) {
+                // Create solar panel structure
+                solarPanel.innerHTML = '';
+                solarPanel.style.cssText = `
+                    position: relative;
+                    width: 100%;
+                    height: 180px;
+                    background: linear-gradient(135deg, #334155, #1e293b);
+                    border-radius: 15px;
+                    transform-style: preserve-3d;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    overflow: hidden;
+                    margin: 0 auto;
+                `;
+                
+                for (let i = 0; i < 5; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'solar-cell';
+                    cell.style.cssText = `
+                        position: absolute;
+                        width: 18%;
+                        height: 90%;
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        border-radius: 8px;
+                        top: 5%;
+                        left: ${(i * 19 + 2)}%;
+                        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+                    `;
+                    solarPanel.appendChild(cell);
+                    
+                    // Add pulsing animation to each cell
+                    setInterval(() => {
+                        cell.style.boxShadow = 'inset 0 0 25px rgba(255, 255, 255, 0.6)';
+                        setTimeout(() => {
+                            cell.style.boxShadow = 'inset 0 0 15px rgba(0, 0, 0, 0.3)';
+                        }, 300 + i * 100);
+                    }, 2000 + i * 500);
+                }
+            }
+            
+            // Counter animation for stats
+            const counters = document.querySelectorAll('.stat-number, .hero-stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText.replace('%', '').replace('+', '').replace('/', '');
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        // Add back the symbol
+                        const text = counter.getAttribute('data-count');
+                        if (text.includes('%')) counter.innerText = counter.innerText + '%';
+                        if (text.includes('+')) counter.innerText = counter.innerText + '+';
+                        if (text.includes('/')) counter.innerText = counter.innerText + '/7';
+                    }
+                };
+                
+                // Start counter when in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCount();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if(window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        window.scrollTo({
+                            top: targetElement.offsetTop - navbarHeight,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navbarToggler = document.querySelector('.navbar-toggler');
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if(navbarCollapse.classList.contains('show')) {
+                            navbarToggler.click();
+                        }
+                    }
+                });
+            });
+            
+            // Form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const name = this.querySelector('input[type="text"]').value;
+                const email = this.querySelector('input[type="email"]').value;
+                const phone = this.querySelector('input[type="tel"]').value;
+                
+                if(name && email && phone) {
+                    // Show success message
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Request Sent Successfully!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    submitBtn.disabled = true;
+                    
+                    // Create success message
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'alert alert-success mt-4 animate__animated animate__fadeIn';
+                    successMsg.innerHTML = `
+                        <h5 class="alert-heading"><i class="fas fa-check-circle me-2"></i>Thank you, ${name}!</h5>
+                        <p class="mb-0">Your consultation request has been received. A Grid Zero solar expert will contact you within 24 hours at ${phone} or ${email}.</p>
+                    `;
+                    this.appendChild(successMsg);
+                    
+                    // Reset button after 5 seconds
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = 'linear-gradient(135deg, var(--primary-green), var(--dark-green))';
+                        submitBtn.disabled = false;
+                        successMsg.remove();
+                        this.reset();
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
