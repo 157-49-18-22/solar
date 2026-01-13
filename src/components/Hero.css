@@ -344,6 +344,7 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     opacity: 0.1;
     animation: fadeInUpSmooth 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+    color: #0a0e27;
 }
 
 /* Premium Hero Buttons */

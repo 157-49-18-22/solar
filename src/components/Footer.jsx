@@ -1,9 +1,16 @@
+import Lottie from 'lottie-react';
+import solarAnimation from '../assets/solar.json';
 import './Footer.css';
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="container">
+            {/* Background Solar Animation */}
+            <div className="footer-solar-bg">
+                <Lottie animationData={solarAnimation} loop={true} className="solar-lottie" />
+            </div>
+
+            <div className="container footer-content-wrapper">
                 <div className="footer-grid">
                     {/* Company Info */}
                     <div className="footer-col">
